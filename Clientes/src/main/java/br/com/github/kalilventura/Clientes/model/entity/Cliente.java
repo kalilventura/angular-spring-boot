@@ -7,8 +7,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /*
     O lombok gera em tempo de compilação os Getters e Setters com as anotations @Getter e @Setter
@@ -18,6 +22,9 @@ import lombok.Data;
  */
 @Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Cliente {
 
     @Id
@@ -32,4 +39,12 @@ public class Cliente {
 
     @Column(name = "data_cadastro")
     private LocalDate dataCadastro;
+
+    /*
+     * Antes de persistir o dado no banco, ele será executada
+     */
+    @PrePersist
+    public void prePersist() {
+        setDataCadastro(LocalDate.now());
+    }
 }
