@@ -1,22 +1,17 @@
 package br.com.github.kalilventura.clientes;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import br.com.github.kalilventura.clientes.model.entity.Cliente;
-import br.com.github.kalilventura.clientes.model.repository.ClienteRepository;
-
 @SpringBootApplication
 public class ClientesApplication {
 
 	@Bean
-	public CommandLineRunner run(@Autowired ClienteRepository repository) {
+	public CommandLineRunner run() {
 		return args -> {
-			Cliente cliente = Cliente.builder().cpf("12345678911").nome("Teste").build();
-			repository.save(cliente);
+			System.out.println("Executando com sucesso");
 		};
 	}
 
