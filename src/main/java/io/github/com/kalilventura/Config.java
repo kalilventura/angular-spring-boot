@@ -2,8 +2,10 @@ package io.github.com.kalilventura;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
 @Configuration
+@Profile("development")
 public class Config {
 
     /*
