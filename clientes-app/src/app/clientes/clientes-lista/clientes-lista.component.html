@@ -32,10 +32,39 @@
             <td>{{cliente.nome}}</td>
             <td>{{cliente.cpf}}</td>
             <td>{{cliente.dataCadastro}}</td>
-            <td></td>
+            <td>
+              <button class="btn btn-primary" (click)="editarCadastro(cliente.id)">
+                <a class="fa fa-edit"></a>
+              </button>
+              <button class="btn btn-danger" (click)="confirmaDeletar(cliente)" data-toggle="modal"
+                data-target="#modalDeletar">
+                <i class="fa fa-trash"></i>
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
+
+  <div id="modalDeletar" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4>Confirmação</h4>
+        </div>
+
+        <div class="modal-body" *ngIf="clienteSelecionado">
+          Confirma a exclusão do(a) Cliente {{ clienteSelecionado.nome }}?
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-success" (click)="deletarCliente(clienteSelecionado)"
+            data-dismiss="modal">Confirmar</button>
+          <button class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>

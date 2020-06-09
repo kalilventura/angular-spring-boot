@@ -1,6 +1,6 @@
 <h1 class="mt-4">Cliente</h1>
 <ol class="breadcrumb mb-4">
-  <li class="breadcrumb-item active">Cadastro</li>
+  <li class="breadcrumb-item active">{{cliente.id ? 'Edição' : 'Cadastro'}}</li>
 </ol>
 
 <div class="container">
@@ -37,20 +37,23 @@
       <div class="col-md-6">
         <div class="form-group">
           <label>Nome: </label>
-          <input type="text" class="form-control" formControlName="nome" />
+          <input type="text" class="form-control" [ngModel]="cliente.nome" formControlName="nome" />
         </div>
       </div>
       <div class="col-md-6">
         <div class="form-group">
           <label>CPF : </label>
-          <input type="text" class="form-control" formControlName="cpf" />
+          <input type="text" class="form-control" [ngModel]="cliente.cpf" formControlName="cpf" />
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col-md-3">
-        <button class="btn btn-success" type="submit">
+        <button class="btn btn-success" type="submit" *ngIf="!cliente.id">
           <i class="fa fa-save"></i> Salvar
+        </button>
+        <button class="btn btn-primary" *ngIf="cliente.id">
+          <i class="fa fa-sync-alt"></i> Editar
         </button>
         <button class="btn btn-danger" type="button" (click)="voltarParaListagem()">
           <i class="fa fa-arrow-alt-circle-left"></i> Voltar

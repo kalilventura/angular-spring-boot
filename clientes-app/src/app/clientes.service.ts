@@ -24,7 +24,19 @@ export class ClientesService {
     return this.http.post<Cliente>('http://localhost:8080/api/clientes', cliente);
   }
 
-  getClientes(): Observable<Cliente[]> {
+  obterClientes(): Observable<Cliente[]> {
     return this.http.get<Cliente[]>('http://localhost:8080/api/clientes');
+  }
+
+  obterClientePeloId(id: any): Observable<Cliente> {
+    return this.http.get<Cliente>(`http://localhost:8080/api/clientes/${id}`);
+  }
+
+  atualizarCliente(id: any, cliente: Cliente): Observable<Cliente> {
+    return this.http.post<Cliente>(`http://localhost:8080/api/clientes/${id}`, cliente);
+  }
+
+  deletarCliente(id: any): Observable<any> {
+    return this.http.delete<any>(`http://localhost:8080/api/clientes/${id}`);
   }
 }
