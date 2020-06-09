@@ -48,10 +48,14 @@
       </div>
     </div>
     <div class="row">
-      <button class="btn btn-success" type="submit">
-        <i class="fa fa-save"></i>
-        Salvar
-      </button>
+      <div class="col-md-3">
+        <button class="btn btn-success" type="submit">
+          <i class="fa fa-save"></i> Salvar
+        </button>
+        <button class="btn btn-danger" type="button" (click)="voltarParaListagem()">
+          <i class="fa fa-arrow-alt-circle-left"></i> Voltar
+        </button>
+      </div>
     </div>
   </form>
 </div>

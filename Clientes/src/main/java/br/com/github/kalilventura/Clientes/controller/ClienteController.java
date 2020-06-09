@@ -1,5 +1,7 @@
 package br.com.github.kalilventura.clientes.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,6 +61,11 @@ public class ClienteController {
             clienteAtualizado.setId(cliente.getId());
             return repository.save(clienteAtualizado);
         }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+    }
+
+    @GetMapping
+    public List<Cliente> obterTodosClientes() {
+        return repository.findAll();
     }
 
 }

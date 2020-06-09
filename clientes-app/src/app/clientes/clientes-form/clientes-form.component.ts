@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { ClientesService } from './../../clientes.service';
 import { Cliente } from './../cliente';
 import { Component, OnInit } from '@angular/core';
@@ -13,7 +14,7 @@ export class ClientesFormComponent implements OnInit {
   success = false;
   errors: string[];
   cliente: Cliente = new Cliente();
-  constructor(private fb: FormBuilder, private service: ClientesService) { }
+  constructor(private fb: FormBuilder, private service: ClientesService, private router: Router) { }
 
   ngOnInit(): void {
     this.clientForm = this.fb.group({
@@ -40,6 +41,10 @@ export class ClientesFormComponent implements OnInit {
         }, () => {
           setTimeout(() => this.success = false, 900);
         });
+  }
+
+  voltarParaListagem() {
+    this.router.navigate(['/clientes-lista']);
   }
 
 }
