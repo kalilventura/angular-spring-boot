@@ -22,11 +22,11 @@ export class ClientesListaComponent implements OnInit {
   }
 
   novoCadastro() {
-    this.router.navigate(['/clientes-form']);
+    this.router.navigate(['/clientes/form']);
   }
 
   editarCadastro(id: any) {
-    this.router.navigate([`/clientes-form/${id}`]);
+    this.router.navigate([`/clientes/form/${id}`]);
   }
 
   confirmaDeletar(cliente: Cliente) {

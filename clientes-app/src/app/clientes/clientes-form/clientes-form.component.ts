@@ -19,7 +19,6 @@ export class ClientesFormComponent implements OnInit {
   ngOnInit(): void {
     this.editarCliente(this.activatedRoute.snapshot.paramMap.get('id'));
     this.buildForm();
-
   }
 
   editarCliente(id: any) {
@@ -52,7 +51,6 @@ export class ClientesFormComponent implements OnInit {
           this.success = true;
           this.errors = [];
         }, (err) => {
-          // console.error(err.error.errors);
           this.success = false;
           this.errors = err.error.errors;
         }, () => setTimeout(() => this.success = false, 900));
@@ -67,7 +65,6 @@ export class ClientesFormComponent implements OnInit {
           this.errors = [];
         },
           (err) => {
-            // console.error(err.error.errors);
             this.success = false;
             this.errors = err.error.errors;
           }, () => {
@@ -77,7 +74,7 @@ export class ClientesFormComponent implements OnInit {
   }
 
   voltarParaListagem() {
-    this.router.navigate(['/clientes-lista']);
+    this.router.navigate(['/clientes/lista']);
   }
 
 }
