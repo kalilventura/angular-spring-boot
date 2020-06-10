@@ -1,0 +1,39 @@
+<div id="layoutAuthentication">
+  <div id="layoutAuthenticationContent">
+    <main>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-5">
+            <div class="card shadow-lg border-0 rounded-lg mt-5">
+              <div class="card-header">
+                <h3 class="text-center font-weight-light my-4">
+                  Entrar
+                </h3>
+              </div>
+              <div class="card-body">
+                <div class="alert alert-danger">
+                  Login e/ou senha incorreta(o).
+                </div>
+                <form #loginForm="ngForm" (submit)="onSubmit()">
+                  <div class="form-group">
+                    <label class="small mb-1">Login</label>
+                    <input class="form-control py-4" type="text" name="username" placeholder="Digite o username"
+                      [(ngModel)]="username">
+                  </div>
+                  <div class="form-group">
+                    <label class="small mb-1">Password</label>
+                    <input class="form-control py-4" type="text" name="username" placeholder="Digite sua senha"
+                      [(ngModel)]="password">
+                  </div>
+                  <div class="form-group d-flex align-itens-center justify-content-between mt-4 mb-0">
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
