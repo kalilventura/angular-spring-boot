@@ -1,5 +1,6 @@
 package br.com.github.kalilventura.clientes.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -12,14 +13,23 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 
+import br.com.github.kalilventura.clientes.service.UsuarioService;
+
 @EnableWebSecurity
 @EnableResourceServer
 @EnableAuthorizationServer
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
+    @Autowired
+    private UsuarioService userService;
+
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser("fulano").password("123").roles("USER");
+        auth
+                // Para utilizar os usuarios cadastrados no sistema
+                .userDetailsService(userService)
+                // Tipo de encoder para as senhas para verificacao
+                .passwordEncoder(passwordEncoder());
     }
 
     @Bean
