@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
-	<groupId>io.github.dougllasfps</groupId>
+	<groupId>io.github.kalilventura</groupId>
 	<artifactId>agenda-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>agenda-api</name>
